@@ -30,14 +30,23 @@ document.getElementById('generate-pin').addEventListener('click', function () {
 document.getElementById('calculator').addEventListener('click', function (event) {
     const number = event.target.innerText;
 
+    const typedNumberField = document.getElementById('typed-field');
+    const previousTypedNumber = typedNumberField.value = typedNumberField.value;
+
     if (isNaN(number)) {
-        console.log(number);
+        if (number === 'C') {
+            typedNumberField.value = typedNumberField.value = '';
+        }
+        else if (number === '<') {
+            const digits = previousTypedNumber.split('');
+            digits.pop();
+            const remainDigits = digits.join('');
+            typedNumberField.value = remainDigits;
+        }
     }
     else {
-        const typedField = document.getElementById('typed-field');
-        const previousTypedNumber = typedField.value;
         const newTypedNumber = previousTypedNumber + number;
-        typedField.value = newTypedNumber;
+        typedNumberField.value = typedNumberField.value = newTypedNumber;
 
     }
 
