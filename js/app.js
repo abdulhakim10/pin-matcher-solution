@@ -25,3 +25,20 @@ document.getElementById('generate-pin').addEventListener('click', function () {
 
     console.log(pin);
 })
+
+// pin tyeped 
+document.getElementById('calculator').addEventListener('click', function (event) {
+    const number = event.target.innerText;
+
+    if (isNaN(number)) {
+        console.log(number);
+    }
+    else {
+        const typedField = document.getElementById('typed-field');
+        const previousTypedNumber = typedField.value;
+        const newTypedNumber = previousTypedNumber + number;
+        typedField.value = newTypedNumber;
+
+    }
+
+})
